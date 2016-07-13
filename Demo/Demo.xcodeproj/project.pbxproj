@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E13E35C01D35CFD20092BF30 /* UITableView+CellHeightCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = E13E35BF1D35CFD20092BF30 /* UITableView+CellHeightCalculation.m */; };
+		E17D9BC51D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */; };
 		E1D0AE581D34F38F00F9F37B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE571D34F38F00F9F37B /* main.m */; };
 		E1D0AE5B1D34F38F00F9F37B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE5A1D34F38F00F9F37B /* AppDelegate.m */; };
 		E1D0AE5E1D34F38F00F9F37B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE5D1D34F38F00F9F37B /* ViewController.m */; };
@@ -39,8 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E13E35BE1D35CFD20092BF30 /* UITableView+CellHeightCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+CellHeightCalculation.h"; path = "../../Source/UITableView+CellHeightCalculation.h"; sourceTree = "<group>"; };
-		E13E35BF1D35CFD20092BF30 /* UITableView+CellHeightCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+CellHeightCalculation.m"; path = "../../Source/UITableView+CellHeightCalculation.m"; sourceTree = "<group>"; };
+		E17D9BC31D35F7CD00C58B16 /* UITableView+CellHeightCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CellHeightCalculation.h"; sourceTree = "<group>"; };
+		E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellHeightCalculation.m"; sourceTree = "<group>"; };
 		E1D0AE531D34F38F00F9F37B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D0AE571D34F38F00F9F37B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1D0AE591D34F38F00F9F37B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -88,10 +88,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E17D9BC21D35F7CD00C58B16 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E17D9BC31D35F7CD00C58B16 /* UITableView+CellHeightCalculation.h */,
+				E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */,
+			);
+			name = Source;
+			path = ../Source;
+			sourceTree = "<group>";
+		};
 		E1D0AE4A1D34F38F00F9F37B = {
 			isa = PBXGroup;
 			children = (
-				E1D0AE891D34F42100F9F37B /* UITableView-CellHeightCalculation */,
+				E17D9BC21D35F7CD00C58B16 /* Source */,
 				E1D0AE551D34F38F00F9F37B /* Demo */,
 				E1D0AE6F1D34F39000F9F37B /* DemoTests */,
 				E1D0AE7A1D34F39000F9F37B /* DemoUITests */,
@@ -151,16 +161,6 @@
 				E1D0AE7D1D34F39000F9F37B /* Info.plist */,
 			);
 			path = DemoUITests;
-			sourceTree = "<group>";
-		};
-		E1D0AE891D34F42100F9F37B /* UITableView-CellHeightCalculation */ = {
-			isa = PBXGroup;
-			children = (
-				E13E35BE1D35CFD20092BF30 /* UITableView+CellHeightCalculation.h */,
-				E13E35BF1D35CFD20092BF30 /* UITableView+CellHeightCalculation.m */,
-			);
-			name = "UITableView-CellHeightCalculation";
-			path = Source;
 			sourceTree = "<group>";
 		};
 		E1D0AE941D34F7FB00F9F37B /* BookCell */ = {
@@ -305,8 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E17D9BC51D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m in Sources */,
 				E1D0AE5E1D34F38F00F9F37B /* ViewController.m in Sources */,
-				E13E35C01D35CFD20092BF30 /* UITableView+CellHeightCalculation.m in Sources */,
 				E1D0AE5B1D34F38F00F9F37B /* AppDelegate.m in Sources */,
 				E1D0AE921D34F7F400F9F37B /* BookCell.m in Sources */,
 				E1D0AE581D34F38F00F9F37B /* main.m in Sources */,
@@ -452,6 +452,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobi.morefun.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -464,6 +465,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobi.morefun.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
