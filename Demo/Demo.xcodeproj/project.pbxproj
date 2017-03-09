@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		E17D9BC51D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */; };
 		E1B2A0D31E70FA8600B9DB15 /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE8D1D34F45800F9F37B /* Books.plist */; };
-		E1B2A0D41E70FA8D00B9DB15 /* MFViewHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF6E801E6E5B1000E1B2D6 /* MFViewHeightCache.m */; };
 		E1B2A0D51E7127A000B9DB15 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE911D34F7F400F9F37B /* BookCell.xib */; };
 		E1B2A0D61E7127A400B9DB15 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE901D34F7F400F9F37B /* BookCell.m */; };
+		E1B2A0DA1E7142FB00B9DB15 /* MFViewHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B2A0D91E7142FB00B9DB15 /* MFViewHeightCache.m */; };
 		E1D0AE581D34F38F00F9F37B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE571D34F38F00F9F37B /* main.m */; };
 		E1D0AE5B1D34F38F00F9F37B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE5A1D34F38F00F9F37B /* AppDelegate.m */; };
 		E1D0AE5E1D34F38F00F9F37B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE5D1D34F38F00F9F37B /* ViewController.m */; };
@@ -23,7 +23,6 @@
 		E1D0AE8E1D34F45800F9F37B /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE8D1D34F45800F9F37B /* Books.plist */; };
 		E1D0AE921D34F7F400F9F37B /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE901D34F7F400F9F37B /* BookCell.m */; };
 		E1D0AE931D34F7F400F9F37B /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE911D34F7F400F9F37B /* BookCell.xib */; };
-		E1DF6E811E6E5B1000E1B2D6 /* MFViewHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF6E801E6E5B1000E1B2D6 /* MFViewHeightCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +45,8 @@
 /* Begin PBXFileReference section */
 		E17D9BC31D35F7CD00C58B16 /* UITableView+CellHeightCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+CellHeightCalculation.h"; sourceTree = "<group>"; };
 		E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+CellHeightCalculation.m"; sourceTree = "<group>"; };
+		E1B2A0D81E7142FB00B9DB15 /* MFViewHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFViewHeightCache.h; sourceTree = "<group>"; };
+		E1B2A0D91E7142FB00B9DB15 /* MFViewHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFViewHeightCache.m; sourceTree = "<group>"; };
 		E1D0AE531D34F38F00F9F37B /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D0AE571D34F38F00F9F37B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1D0AE591D34F38F00F9F37B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,8 +67,6 @@
 		E1D0AE8F1D34F7F400F9F37B /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
 		E1D0AE901D34F7F400F9F37B /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
 		E1D0AE911D34F7F400F9F37B /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
-		E1DF6E7F1E6E5B1000E1B2D6 /* MFViewHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFViewHeightCache.h; path = UIViewHeightCache/MFViewHeightCache.h; sourceTree = "<group>"; };
-		E1DF6E801E6E5B1000E1B2D6 /* MFViewHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MFViewHeightCache.m; path = UIViewHeightCache/MFViewHeightCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,13 +97,21 @@
 		E17D9BC21D35F7CD00C58B16 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				E1DF6E7F1E6E5B1000E1B2D6 /* MFViewHeightCache.h */,
-				E1DF6E801E6E5B1000E1B2D6 /* MFViewHeightCache.m */,
+				E1B2A0D71E7142FB00B9DB15 /* MFViewHeightCache */,
 				E17D9BC31D35F7CD00C58B16 /* UITableView+CellHeightCalculation.h */,
 				E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */,
 			);
 			name = Source;
 			path = ../Source;
+			sourceTree = "<group>";
+		};
+		E1B2A0D71E7142FB00B9DB15 /* MFViewHeightCache */ = {
+			isa = PBXGroup;
+			children = (
+				E1B2A0D81E7142FB00B9DB15 /* MFViewHeightCache.h */,
+				E1B2A0D91E7142FB00B9DB15 /* MFViewHeightCache.m */,
+			);
+			path = MFViewHeightCache;
 			sourceTree = "<group>";
 		};
 		E1D0AE4A1D34F38F00F9F37B = {
@@ -317,8 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E17D9BC51D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m in Sources */,
+				E1B2A0DA1E7142FB00B9DB15 /* MFViewHeightCache.m in Sources */,
 				E1D0AE5E1D34F38F00F9F37B /* ViewController.m in Sources */,
-				E1DF6E811E6E5B1000E1B2D6 /* MFViewHeightCache.m in Sources */,
 				E1D0AE5B1D34F38F00F9F37B /* AppDelegate.m in Sources */,
 				E1D0AE921D34F7F400F9F37B /* BookCell.m in Sources */,
 				E1D0AE581D34F38F00F9F37B /* main.m in Sources */,
@@ -329,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1B2A0D41E70FA8D00B9DB15 /* MFViewHeightCache.m in Sources */,
 				E1B2A0D61E7127A400B9DB15 /* BookCell.m in Sources */,
 				E1D0AE711D34F39000F9F37B /* DemoTests.m in Sources */,
 			);
