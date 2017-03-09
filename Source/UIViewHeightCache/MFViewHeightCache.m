@@ -1,16 +1,16 @@
 //
-//  UIViewHeightCache.m
+//  MFViewHeightCache.m
 //
 //
 //  Created by ZhangTinghui on 2017/3/7.
 //  Copyright © 2017年 www.morefun.mobi. All rights reserved.
 //
 
-#import "UIViewHeightCache.h"
+#import "MFViewHeightCache.h"
 
-#pragma mark - UIView (UIViewHeightCache)
+#pragma mark - UIView (MFViewHeightCache)
 
-@implementation UIView (UIViewHeightCache)
+@implementation UIView (MFViewHeightCache)
 
 - (CGFloat)mf_heightForWidth:(CGFloat)width {
     return [self mf_heightForWidth:width configuration:nil];
@@ -31,7 +31,7 @@
     
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
-    [self setBounds:CGRectMake(0.0, 0.0, width, CGRectGetHeight(self.bounds))];
+    [self setBounds:CGRectMake(0.0, 0.0, width, CGFLOAT_MAX)];
     [self setNeedsLayout];
     [self layoutIfNeeded];
     return ceil([(view ?: self) systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height);
@@ -43,45 +43,45 @@
 
 
 
-#pragma mark - UIViewHeightCachedView
+#pragma mark - MFViewHeightCachedView
 
-@interface UIViewHeightCachedView : NSObject
+@interface MFViewHeightCachedView : NSObject
 @property (nonatomic, strong, nonnull) UIView *view;
 @property (nonatomic, strong, nonnull) UIView *heightCalculationView;
 @end
 
-@implementation UIViewHeightCachedView
+@implementation MFViewHeightCachedView
 @end
 
 
 
 
 
-#pragma mark - UIViewHeightCachedHeight
+#pragma mark - MFViewHeightCachedHeight
 
-@interface UIViewHeightCachedHeight : NSObject
+@interface MFViewHeightCachedHeight : NSObject
 @property (nonatomic, assign) CGFloat calculationWidth;
 @property (nonatomic, assign) CGFloat calculatedHeight;
 @end
 
-@implementation UIViewHeightCachedHeight
+@implementation MFViewHeightCachedHeight
 @end
 
 
 
 
 
-#pragma mark - UIViewHeightCache
+#pragma mark - MFViewHeightCache
 
-@interface UIViewHeightCache ()
-@property (nonatomic, strong) NSMutableDictionary<NSString *, UIViewHeightCachedView *> *viewCache;
-@property (nonatomic, strong) NSMutableDictionary<NSString *, UIViewHeightCachedHeight *> *heightCache;
+@interface MFViewHeightCache ()
+@property (nonatomic, strong) NSMutableDictionary<NSString *, MFViewHeightCachedView *> *viewCache;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, MFViewHeightCachedHeight *> *heightCache;
 @end
 
-@implementation UIViewHeightCache
+@implementation MFViewHeightCache
 
 #pragma mark View Cache
-- (NSMutableDictionary<NSString *,UIViewHeightCachedView *> *)viewCache {
+- (NSMutableDictionary<NSString *,MFViewHeightCachedView *> *)viewCache {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (_viewCache == nil) {
@@ -96,14 +96,14 @@
     heightCalculatedByView:(nullable UIView *)heightCalculatedByView {
     
     NSParameterAssert(view != nil && key != nil);
-    UIViewHeightCachedView *cachedView = [[UIViewHeightCachedView alloc] init];
+    MFViewHeightCachedView *cachedView = [[MFViewHeightCachedView alloc] init];
     cachedView.view = view;
     cachedView.heightCalculationView = (heightCalculatedByView ?: view);
     self.viewCache[key] = cachedView;
 }
 
 #pragma mark Height Cache
-- (NSMutableDictionary<NSString *,UIViewHeightCachedHeight *> *)heightCache {
+- (NSMutableDictionary<NSString *,MFViewHeightCachedHeight *> *)heightCache {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (_heightCache == nil) {
@@ -121,14 +121,14 @@
     
     //hit cached height
     if (heightCacheKey != nil) {
-        UIViewHeightCachedHeight *cache = self.heightCache[heightCacheKey];
+        MFViewHeightCachedHeight *cache = self.heightCache[heightCacheKey];
         if (cache != nil && fabs(cache.calculationWidth - width) < 0.000001) {
             return cache.calculatedHeight;
         }
     }
     
     //find the cached view for perform view configuration
-    UIViewHeightCachedView *cachedView = self.viewCache[viewKey];
+    MFViewHeightCachedView *cachedView = self.viewCache[viewKey];
     NSAssert(cachedView != nil, @"Can't find the cached view, you need call method -cacheView:withKey:heightCalculatedByView: first.");
     
     //calculate height
@@ -143,7 +143,7 @@
     
     //cache height
     if (heightCacheKey != nil) {
-        UIViewHeightCachedHeight *cache = [[UIViewHeightCachedHeight alloc] init];
+        MFViewHeightCachedHeight *cache = [[MFViewHeightCachedHeight alloc] init];
         cache.calculationWidth = width;
         cache.calculatedHeight = height;
         self.heightCache[heightCacheKey] = cache;

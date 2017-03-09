@@ -30,7 +30,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.introLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.authorLabel.bounds);
+    self.introLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.contentView.bounds) - 30.0;
 }
 
 @end

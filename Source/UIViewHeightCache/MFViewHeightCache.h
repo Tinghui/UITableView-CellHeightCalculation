@@ -1,5 +1,5 @@
 //
-//  UIViewHeightCache.h
+//  MFViewHeightCache.h
 //  
 //
 //  Created by ZhangTinghui on 2017/3/7.
@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-#pragma mark - UIView (UIViewHeightCache)
+#pragma mark - UIView (MFViewHeightCache)
 
-@interface UIView (UIViewHeightCache)
+@interface UIView (MFViewHeightCache)
 
 /**
  Use autolayout to calculate height.
@@ -52,9 +52,9 @@
 
 
 
-#pragma mark - UIViewHeightCache
+#pragma mark - MFViewHeightCache
 
-@interface UIViewHeightCache : NSObject
+@interface MFViewHeightCache : NSObject
 
 /**
  Cache view for later calcualtion.

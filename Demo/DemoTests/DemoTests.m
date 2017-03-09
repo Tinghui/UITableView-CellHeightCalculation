@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 #import "BookCell.h"
-#import "UIViewHeightCache.h"
+#import "MFViewHeightCache.h"
 
 
 @interface DemoTests : XCTestCase
-@property (nonatomic, strong) UIViewHeightCache *heightCache;
+@property (nonatomic, strong) MFViewHeightCache *heightCache;
 @property (nonatomic, strong) NSArray<NSMutableDictionary *> *books;
 @end
 
@@ -35,7 +35,7 @@
                                    owner:nil
                                    options:nil]
                                   firstObject];
-    self.heightCache = [[UIViewHeightCache alloc] init];
+    self.heightCache = [[MFViewHeightCache alloc] init];
     [self.heightCache cacheView:cell
                         withKey:NSStringFromClass([BookCell class])
          heightCalculatedByView:cell.contentView];
@@ -45,8 +45,7 @@
     cell.nameLabel.text = dict[@"Name"];
     cell.priceLabel.text = dict[@"Price"];
     cell.authorLabel.text = dict[@"Author"];
-    const BOOL showMore = [dict[@"ShowMore"] boolValue];
-    cell.introLabel.text = (showMore? dict[@"Intro"]: nil);
+    cell.introLabel.text = ([dict[@"ShowMore"] boolValue] ? dict[@"Intro"] : nil);
 }
 
 - (void)testUnExpandCellHeightCalculation {
@@ -78,7 +77,6 @@
                                 }] + 1.0;
         XCTAssertEqual(height, [heights[idx] doubleValue]);
     }];
-    
 }
 
 - (void)tearDown {
