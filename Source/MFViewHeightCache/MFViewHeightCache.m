@@ -80,16 +80,16 @@
 
 @implementation MFViewHeightCache
 
-#pragma mark View Cache
-- (NSMutableDictionary<NSString *,MFViewHeightCachedView *> *)viewCache {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (_viewCache == nil) {
-            _viewCache = [NSMutableDictionary dictionary];
-        }
-    });
-    return _viewCache;
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.viewCache = [NSMutableDictionary dictionary];
+        self.heightCache = [NSMutableDictionary dictionary];
+    }
+    return self;
 }
+
+#pragma mark View Cache
 
 - (void)cacheView:(nonnull UIView *)view
           withKey:(nonnull NSString *)key
@@ -103,15 +103,6 @@
 }
 
 #pragma mark Height Cache
-- (NSMutableDictionary<NSString *,MFViewHeightCachedHeight *> *)heightCache {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (_heightCache == nil) {
-            _heightCache = [NSMutableDictionary dictionary];
-        }
-    });
-    return _heightCache;
-}
 
 - (CGFloat)heightForViewWithKey:(nonnull NSString *)viewKey
                           width:(CGFloat)width
