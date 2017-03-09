@@ -98,7 +98,7 @@
     }
     
     NSAssert(CGRectGetWidth(self.bounds) > 0.0, @"TableView's width is 0.0, it may lead the calculation wrong. \n \
-             May be tableView's frame is initialized CGRectZero and layout has not updated.");
+             May be tableView's frame is initialized CGRectZero or layout has not updated.");
     
     [cell setNeedsUpdateConstraints];
     [cell updateConstraintsIfNeeded];

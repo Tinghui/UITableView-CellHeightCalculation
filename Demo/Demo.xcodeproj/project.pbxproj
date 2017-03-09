@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E17D9BC51D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */; };
+		E1B2A0D31E70FA8600B9DB15 /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE8D1D34F45800F9F37B /* Books.plist */; };
+		E1B2A0D41E70FA8D00B9DB15 /* UIViewHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF6E801E6E5B1000E1B2D6 /* UIViewHeightCache.m */; };
+		E1B2A0D51E7127A000B9DB15 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE911D34F7F400F9F37B /* BookCell.xib */; };
+		E1B2A0D61E7127A400B9DB15 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE901D34F7F400F9F37B /* BookCell.m */; };
 		E1D0AE581D34F38F00F9F37B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE571D34F38F00F9F37B /* main.m */; };
 		E1D0AE5B1D34F38F00F9F37B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE5A1D34F38F00F9F37B /* AppDelegate.m */; };
 		E1D0AE5E1D34F38F00F9F37B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE5D1D34F38F00F9F37B /* ViewController.m */; };
@@ -19,6 +23,7 @@
 		E1D0AE8E1D34F45800F9F37B /* Books.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE8D1D34F45800F9F37B /* Books.plist */; };
 		E1D0AE921D34F7F400F9F37B /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0AE901D34F7F400F9F37B /* BookCell.m */; };
 		E1D0AE931D34F7F400F9F37B /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D0AE911D34F7F400F9F37B /* BookCell.xib */; };
+		E1DF6E811E6E5B1000E1B2D6 /* UIViewHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF6E801E6E5B1000E1B2D6 /* UIViewHeightCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,8 @@
 		E1D0AE8F1D34F7F400F9F37B /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
 		E1D0AE901D34F7F400F9F37B /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
 		E1D0AE911D34F7F400F9F37B /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
+		E1DF6E7F1E6E5B1000E1B2D6 /* UIViewHeightCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewHeightCache.h; path = UIViewHeightCache/UIViewHeightCache.h; sourceTree = "<group>"; };
+		E1DF6E801E6E5B1000E1B2D6 /* UIViewHeightCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewHeightCache.m; path = UIViewHeightCache/UIViewHeightCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +98,8 @@
 		E17D9BC21D35F7CD00C58B16 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E1DF6E7F1E6E5B1000E1B2D6 /* UIViewHeightCache.h */,
+				E1DF6E801E6E5B1000E1B2D6 /* UIViewHeightCache.m */,
 				E17D9BC31D35F7CD00C58B16 /* UITableView+CellHeightCalculation.h */,
 				E17D9BC41D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m */,
 			);
@@ -235,7 +244,7 @@
 		E1D0AE4B1D34F38F00F9F37B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = www.morefun.mobi;
 				TargetAttributes = {
 					E1D0AE521D34F38F00F9F37B = {
@@ -288,6 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B2A0D51E7127A000B9DB15 /* BookCell.xib in Resources */,
+				E1B2A0D31E70FA8600B9DB15 /* Books.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +318,7 @@
 			files = (
 				E17D9BC51D35F7CD00C58B16 /* UITableView+CellHeightCalculation.m in Sources */,
 				E1D0AE5E1D34F38F00F9F37B /* ViewController.m in Sources */,
+				E1DF6E811E6E5B1000E1B2D6 /* UIViewHeightCache.m in Sources */,
 				E1D0AE5B1D34F38F00F9F37B /* AppDelegate.m in Sources */,
 				E1D0AE921D34F7F400F9F37B /* BookCell.m in Sources */,
 				E1D0AE581D34F38F00F9F37B /* main.m in Sources */,
@@ -317,6 +329,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B2A0D41E70FA8D00B9DB15 /* UIViewHeightCache.m in Sources */,
+				E1B2A0D61E7127A400B9DB15 /* BookCell.m in Sources */,
 				E1D0AE711D34F39000F9F37B /* DemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,8 +392,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -401,7 +417,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -422,8 +438,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -439,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -452,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobi.morefun.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,7 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mobi.morefun.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

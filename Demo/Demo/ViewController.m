@@ -17,6 +17,7 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _configureTableView];
@@ -103,11 +104,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     __weak typeof(self)weakSelf = self;
     NSMutableDictionary *dict = [self _bookDictAtIndex:indexPath.row];
-    return [tableView mf_heightForCellWithIdentifier:NSStringFromClass([BookCell class])
+    CGFloat height = [tableView mf_heightForCellWithIdentifier:NSStringFromClass([BookCell class])
                                           cacheByKey:dict[@"ISBN"]
                                    cellConfiguration:^(__kindof UITableViewCell * _Nonnull cell) {
                                        [weakSelf _configureCell:cell atIndex:indexPath.row];
                                    }];
+    NSLog(@"row %ld, height => %f", (long)indexPath.row, height);
+    return height;
 }
 
 

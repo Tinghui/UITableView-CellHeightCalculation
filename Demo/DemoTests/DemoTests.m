@@ -7,16 +7,78 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "BookCell.h"
+#import "UIViewHeightCache.h"
+
 
 @interface DemoTests : XCTestCase
-
+@property (nonatomic, strong) UIViewHeightCache *heightCache;
+@property (nonatomic, strong) NSArray<NSMutableDictionary *> *books;
 @end
 
 @implementation DemoTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Books" ofType:@"plist"];
+    NSArray *array = [NSArray arrayWithContentsOfFile:path];
+    NSMutableArray *books = [NSMutableArray array];
+    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [books addObject:[obj mutableCopy]];
+    }];
+    self.books = books;
+    
+    
+    BookCell *cell = (BookCell *)[[[NSBundle mainBundle]
+                                   loadNibNamed:NSStringFromClass([BookCell class])
+                                   owner:nil
+                                   options:nil]
+                                  firstObject];
+    self.heightCache = [[UIViewHeightCache alloc] init];
+    [self.heightCache cacheView:cell
+                        withKey:NSStringFromClass([BookCell class])
+         heightCalculatedByView:cell.contentView];
+}
+
+- (void)_configureCell:(BookCell *)cell withDict:(NSDictionary *)dict {
+    cell.nameLabel.text = dict[@"Name"];
+    cell.priceLabel.text = dict[@"Price"];
+    cell.authorLabel.text = dict[@"Author"];
+    const BOOL showMore = [dict[@"ShowMore"] boolValue];
+    cell.introLabel.text = (showMore? dict[@"Intro"]: nil);
+}
+
+- (void)testUnExpandCellHeightCalculation {
+    __weak typeof(self) weakSelf = self;
+    CGFloat height = [self.heightCache
+                      heightForViewWithKey:NSStringFromClass([BookCell class])
+                      width:375.0
+                      heightCacheKey:nil
+                      viewConfiguration:^(__kindof UIView * _Nonnull view) {
+                          [weakSelf _configureCell:(BookCell *)view
+                                          withDict:weakSelf.books[0]];
+                      }] + 1.0;
+    XCTAssertEqual(height, 123.00);
+}
+
+- (void)testExpandCellHeightCalculation {
+    __weak typeof(self) weakSelf = self;
+    NSArray *heights = @[@355.00, @570.00, @426.00, @373.00, @373.00, @373.00, @373.00];
+    NSArray<NSMutableDictionary *> *books = [self.books copy];
+    [books enumerateObjectsUsingBlock:^(NSMutableDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj[@"ShowMore"] = @YES;
+        const CGFloat height = [self.heightCache
+                                heightForViewWithKey:NSStringFromClass([BookCell class])
+                                width:375.0
+                                heightCacheKey:nil
+                                viewConfiguration:^(__kindof UIView * _Nonnull view) {
+                                    [weakSelf _configureCell:(BookCell *)view
+                                                    withDict:obj];
+                                }] + 1.0;
+        XCTAssertEqual(height, [heights[idx] doubleValue]);
+    }];
+    
 }
 
 - (void)tearDown {
@@ -24,16 +86,5 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
 
 @end
