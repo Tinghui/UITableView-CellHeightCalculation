@@ -1,14 +1,14 @@
 # Purpose
 
-The basic idea is from this stackoverflow question: [http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights](http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights) ([in Chinese](http://codingobjc.com/blog/2014/10/15/shi-yong-autolayoutshi-xian-uitableviewde-celldong-tai-bu-ju-he-ke-bian-xing-gao/)). 
+The basic idea is from this stackoverflow question: [http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights](http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights) ([in Chinese](http://codingobjc.com/blog/2014/10/15/shi-yong-autolayoutshi-xian-uitableviewde-celldong-tai-bu-ju-he-ke-bian-xing-gao/)).
 
 So this library is designed to simplifies the height calculation and cache for auto layout views. And we provide two components in this library: [MFViewHeightCache](#jump_to_0) and [UITableView+CellHeightCalculation](#jump_to_1).
 
-# <span id="jump_to_0">MFViewHeightCache</span> 
+# <span id="jump_to_0">MFViewHeightCache</span>
 
 MFViewHeightCache provides a simple way to calculate and cache the height of any kinds of auto layout views.
 
-It basically adds a category method on UIView to calculates view's height, and then builds a cache on top of this method. 
+It basically adds a category method on UIView to calculates view's height, and then builds a cache on top of this method.
 
 ```objc
 - (CGFloat)mf_heightForWidth:(CGFloat)width
@@ -19,7 +19,7 @@ It basically adds a category method on UIView to calculates view's height, and t
     if (configuration != nil) {
         configuration();
     }
-    
+
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
     [self setBounds:CGRectMake(0.0, 0.0, width, CGFLOAT_MAX)];
@@ -41,7 +41,7 @@ The basically usage is cache the view first, then call the height calcualtion me
 - (MFViewHeightCache *)heightCache {
     if (_heightCache == nil) {
         _heightCache = [[MFViewHeightCache alloc] init];
-        
+
         BookCell *cell = (BookCell *)[[[NSBundle mainBundle]
                                        loadNibNamed:NSStringFromClass([BookCell class])
                                        owner:nil
@@ -51,7 +51,7 @@ The basically usage is cache the view first, then call the height calcualtion me
                         withKey:NSStringFromClass([BookCell class])
          heightCalculatedByView:cell.contentView];
     }
-    
+
     return _heightCache;
 }
 
@@ -83,10 +83,10 @@ Or if you don't need the cache, you can just use one of these UIView's category 
 To integrate MFViewHeightCache into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```objc
-pod 'MFViewHeightCache', '~> 1.0.2'
+pod 'MFViewHeightCache', '~> 1.1.0'
 ```
-	
-# <span id="jump_to_1">UITableView+CellHeightCalculation</span> 
+
+# <span id="jump_to_1">UITableView+CellHeightCalculation</span>
 
 
 UITableView+CellHeightCalculation is an UITableView category that builds on top of MFViewHeightCache.
@@ -133,5 +133,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
