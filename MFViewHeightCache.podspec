@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MFViewHeightCache"
-  s.version      = "1.0.2"
+  s.version      = "1.1.0"
   s.summary      = "Height calculate and cache for auto layout views."
   s.homepage     = "https://github.com/Tinghui/UITableView-CellHeightCalculation"
   s.license      = { :type => "MIT", :file => "LICENSE.md" }
