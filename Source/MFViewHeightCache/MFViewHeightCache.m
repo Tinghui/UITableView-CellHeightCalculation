@@ -23,8 +23,8 @@
 - (CGFloat)mf_heightForWidth:(CGFloat)width
    withHeightCalculationView:(nullable UIView *)view
                configuration:(nullable void(^)(void))configuration {
-    NSAssert(self.translatesAutoresizingMaskIntoConstraints, @"View must be auto layout enabled.");
-
+    NSAssert(self.translatesAutoresizingMaskIntoConstraints, @"View must be autolyout enabled.");
+    
     if (configuration != nil) {
         configuration();
     }
@@ -93,7 +93,7 @@
 
 - (void)cacheView:(nonnull UIView *)view
           withKey:(nonnull NSString *)key
-    heightCalculatedByView:(nullable UIView *)heightCalculatedByView {
+heightCalculatedByView:(nullable UIView *)heightCalculatedByView {
     
     NSParameterAssert(view != nil && key != nil);
     MFViewHeightCachedView *cachedView = [[MFViewHeightCachedView alloc] init];
