@@ -2,7 +2,7 @@
 
 The basic idea is from this stackoverflow question: [http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights](http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights) ([in Chinese](http://codingobjc.com/blog/2014/10/15/shi-yong-autolayoutshi-xian-uitableviewde-celldong-tai-bu-ju-he-ke-bian-xing-gao/)).
 
-So this library is designed to simplifies the height calculation and cache for auto layout views. And we provide two components in this library: [MFViewHeightCache](#jump_to_0) and [UITableView+CellHeightCalculation](#jump_to_1).
+So this library is designed to simplifies the height calculation and cache for auto layout views. And we provide two components in this library: [MFViewHeightCache](https://github.com/Tinghui/UITableView-CellHeightCalculation#mfviewheightcache) and [UITableView+CellHeightCalculation](https://github.com/Tinghui/UITableView-CellHeightCalculation#uitableviewcellheightcalculation).
 
 # <span id="jump_to_0">MFViewHeightCache</span>
 
