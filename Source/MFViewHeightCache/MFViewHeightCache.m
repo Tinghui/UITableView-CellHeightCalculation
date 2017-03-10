@@ -31,7 +31,7 @@
     
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
-    [self setBounds:CGRectMake(0.0, 0.0, width, CGFLOAT_MAX)];
+    [self setBounds:CGRectMake(0.0, 0.0, width, CGRectGetHeight(self.bounds))];
     [self setNeedsLayout];
     [self layoutIfNeeded];
     return ceil([(view ?: self) systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height);
