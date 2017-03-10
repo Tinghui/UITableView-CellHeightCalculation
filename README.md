@@ -106,7 +106,7 @@ The APIs are very simple, basically all you have to do is in UITableViewDelegate
 To integrate UITableView+CellHeightCalculation into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```objc
-pod 'UITableView+CellHeightCalculation', '~> 1.0.3'
+pod 'UITableView+CellHeightCalculation', '~> 1.1.1'
 ```
 
 # License
@@ -133,3 +133,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+

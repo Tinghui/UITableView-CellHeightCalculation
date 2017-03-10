@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "UITableView+CellHeightCalculation"
-  s.version      = "1.0.3"
+  s.version      = "1.1.1"
   s.summary      = "Auto layout UITableViewCell height calculate and cache."
   s.homepage     = "https://github.com/Tinghui/UITableView-CellHeightCalculation"
   s.license      = { :type => "MIT", :file => "LICENSE.md" }
@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "6.0"
   s.source       = { :git => "https://github.com/Tinghui/UITableView-CellHeightCalculation.git", :tag => s.version }
   s.source_files = "Source/UITableView+CellHeightCalculation.{h,m}"
-  s.dependency "MFViewHeightCache", "~> 1.0.2"
+  s.dependency "MFViewHeightCache", "~> 1.1.0"
 end
