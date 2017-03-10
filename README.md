@@ -1,8 +1,95 @@
 # Purpose
 
-UITableView+CellHeightCalculation is an UITableView category that simplifies the height calculation of auto layout cells.
+The basic idea is from this stackoverflow question: [http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights](http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights) ([in Chinese](http://codingobjc.com/blog/2014/10/15/shi-yong-autolayoutshi-xian-uitableviewde-celldong-tai-bu-ju-he-ke-bian-xing-gao/)). 
 
-For how to using auto layout in UITableView for dynamic cell layouts & variable row heights, see this stackoverflow question: [http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights](http://stackoverflow.com/questions/18746929/using-auto-layout-in-uitableview-for-dynamic-cell-layouts-variable-row-heights), or [this article in Chinese](http://codingobjc.com/blog/2014/10/15/shi-yong-autolayoutshi-xian-uitableviewde-celldong-tai-bu-ju-he-ke-bian-xing-gao/).
+So this library is designed to simplifies the height calculation and cache for auto layout views. And we provide two components in this library: [MFViewHeightCache](#jump_to_0) and [UITableView+CellHeightCalculation](#jump_to_1).
+
+# <span id="jump_to_0">MFViewHeightCache</span> 
+
+MFViewHeightCache provides a simple way to calculate and cache the height of any kinds of auto layout views.
+
+It basically adds a category method on UIView to calculates view's height, and then builds a cache on top of this method. 
+
+```objc
+- (CGFloat)mf_heightForWidth:(CGFloat)width
+   withHeightCalculationView:(nullable UIView *)view
+               configuration:(nullable void(^)(void))configuration {
+    NSAssert(self.translatesAutoresizingMaskIntoConstraints, @"View must be auto layout enabled.");
+
+    if (configuration != nil) {
+        configuration();
+    }
+    
+    [self setNeedsUpdateConstraints];
+    [self updateConstraintsIfNeeded];
+    [self setBounds:CGRectMake(0.0, 0.0, width, CGFLOAT_MAX)];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    return ceil([(view ?: self) systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height);
+}
+```
+
+#### Basically useage
+
+The basically usage is cache the view first, then call the height calcualtion methods. For example:
+
+```objc
+// Let's say you have a heightCache property in your view controller.
+@property (nonatomic, strong) MFViewHeightCache *heightCache;
+
+// Cache view first.
+- (MFViewHeightCache *)heightCache {
+    if (_heightCache == nil) {
+        _heightCache = [[MFViewHeightCache alloc] init];
+        
+        BookCell *cell = (BookCell *)[[[NSBundle mainBundle]
+                                       loadNibNamed:NSStringFromClass([BookCell class])
+                                       owner:nil
+                                       options:nil]
+                                      firstObject];
+        [_heightCache cacheView:cell
+                        withKey:NSStringFromClass([BookCell class])
+         heightCalculatedByView:cell.contentView];
+    }
+    
+    return _heightCache;
+}
+
+// Then use heightCache to calculate and cache view's height.
+__weak typeof(self) weakSelf = self;
+const CGFloat height = [self.heightCache
+                        heightForViewWithKey:NSStringFromClass([BookCell class])
+                        width:CGRectGetWidth(tableView.bounds)
+                        heightCacheKey:dataDict[@"ISBN"]
+                        viewConfiguration:^(__kindof UIView * _Nonnull view) {
+                            [weakSelf _configureCell:(BookCell *)view
+                                            withDict:dataDict];
+                        }] + 1.0;
+```
+
+Or if you don't need the cache, you can just use one of these UIView's category methods to calculate view's height:
+
+```objc
+- (CGFloat)mf_heightForWidth:(CGFloat)width;
+- (CGFloat)mf_heightForWidth:(CGFloat)width
+               configuration:(nullable void(^)(void))configuration;
+- (CGFloat)mf_heightForWidth:(CGFloat)width
+   withHeightCalculationView:(nullable UIView *)view
+               configuration:(nullable void(^)(void))configuration;
+```
+
+#### Installation by CocoaPods
+
+To integrate MFViewHeightCache into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```objc
+pod 'MFViewHeightCache', '~> 1.0.2'
+```
+	
+# <span id="jump_to_1">UITableView+CellHeightCalculation</span> 
+
+
+UITableView+CellHeightCalculation is an UITableView category that builds on top of MFViewHeightCache.
 
 The APIs are very simple, basically all you have to do is in UITableViewDelegate `-tableView:heightForRowAtIndexPath:` method:
 
@@ -14,32 +101,13 @@ The APIs are very simple, basically all you have to do is in UITableViewDelegate
 }
 ```
 
-#### Height Caching
+#### Installation by CocoaPods
 
-If you want to cache the height, you can use the similar method which has a `cacheByKey:(nonnull id<NSCopying>)key` parameter and provide a key to cache the height:
-
-```objc
-- (CGFloat)mf_heightForCellWithIdentifier:(nonnull NSString *)identifier
-                               cacheByKey:(nonnull id<NSCopying>)key
-                        cellConfiguration:(nonnull void (^)(__kindof UITableViewCell * _Nonnull cell))configuration;
-```
-
-For removing the cached height, there are two APIs, one for removing all, one for removing specified one:
+To integrate UITableView+CellHeightCalculation into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```objc
-- (void)mf_removeAllCachedHeight;
-- (void)mf_removeCachedHeightForKey:(nonnull id<NSCopying>)key;
+pod 'UITableView+CellHeightCalculation', '~> 1.0.3'
 ```
-
-For more details, please checkout the demo project in this repository.
-
-
-
-# Installation by CocoaPods
-
-1. Add `pod 'UITableView+CellHeightCalculation', '~> 1.0.0'` to your Podfile.
-2. Install by running `pod install` .
-3. Include it wherever you need with `#import <UITableView+CellHeightCalculation/UITableView+CellHeightCalculation.h>` .
 
 # License
 UITableView+CellHeightCalculation is distributed under an [MIT License](http://opensource.org/licenses/MIT).
@@ -65,3 +133,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+

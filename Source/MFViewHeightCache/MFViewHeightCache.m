@@ -23,7 +23,7 @@
 - (CGFloat)mf_heightForWidth:(CGFloat)width
    withHeightCalculationView:(nullable UIView *)view
                configuration:(nullable void(^)(void))configuration {
-    NSAssert(self.translatesAutoresizingMaskIntoConstraints, @"View must be autolyout enabled.");
+    NSAssert(self.translatesAutoresizingMaskIntoConstraints, @"View must be auto layout enabled.");
 
     if (configuration != nil) {
         configuration();

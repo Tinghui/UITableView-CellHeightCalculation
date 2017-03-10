@@ -61,6 +61,7 @@
     XCTAssertEqual(height, 123.00);
 }
 
+
 - (void)testExpandCellHeightCalculation {
     __weak typeof(self) weakSelf = self;
     NSArray *heights = @[@355.00, @570.00, @426.00, @373.00, @373.00, @373.00, @373.00];

@@ -32,7 +32,8 @@
  @param configuration Configuration for the view before calculating height.
  @return View's height for the width.
  */
-- (CGFloat)mf_heightForWidth:(CGFloat)width configuration:(nullable void(^)(void))configuration;
+- (CGFloat)mf_heightForWidth:(CGFloat)width
+               configuration:(nullable void(^)(void))configuration;
 
 /**
  Use autolayout to calculate height.
